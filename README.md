@@ -1,28 +1,14 @@
 # Algorithms and Data Structure Implemented in C++
 
-## Algorithms
+## General Algorithms
 
-### Sorting
-algo | complexity (avg) 
+Algorithm | Complexity (avg) 
 --- | --- 
-insertion | n^2 
-binary insertions | nlogn 
-merge | nlogn 
-heap  | nlogn 
-bst  | nlogn 
-
-*To-do*
-* [ ] Quicksort
-* [ ] Shellsort
-* [ ] Introsort
-* [ ] Selection sort
-* [ ] Bubble sort
-* [ ] Odd–even sort
-* [ ] Cocktail shaker sort
-* [ ] Cycle sort
-* [ ] Merge-insertion sort
-* [ ] Smoothsort
-* [ ] Timsort
+Insertion sort | n^2 
+Binary Insertion | nlogn 
+Merge sort | nlogn 
+Heap sort  | nlogn 
+Binary Search Tree (BST) sort  | nlogn 
 
 **note** : *different algorithms have different cases/scenarios where they perform exceptionally better than others.*
 
@@ -30,5 +16,5 @@ bst  | nlogn
 
 technique | traditional | dped | note
 ---	| --- | --- | --
-memoization | 5.5 sec | 0.00015 sec | on fibonacci
+Memoization | 5383971 ticks | 105 ticks | eg: on fibonacci number generation 43
 
