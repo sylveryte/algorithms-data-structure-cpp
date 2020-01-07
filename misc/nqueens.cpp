@@ -27,17 +27,17 @@ void NqueensBoard:: printBoard(){
 	cout << endl;
 
 	cout << " ";
-	for(int i=0; i< this -> siNSize; i++)
-		cout << this -> board[i] << " | ";
+	for(int i=0; i<  siNSize; i++)
+		cout <<  board[i] << " | ";
 	cout << endl;
-	for(int i=0; i< this -> siNSize; i++)
+	for(int i=0; i<  siNSize; i++)
 		cout << "----";
 	cout << endl;
 
 
-	for(int i=0; i< this -> siNSize; i++){
-		for(int j=0; j< this -> siNSize; j++){
-			if ( this-> board[i] == j)
+	for(int i=0; i<  siNSize; i++){
+		for(int j=0; j<  siNSize; j++){
+			if (  board[i] == j)
 				cout << "_Q_|" ;
 			else
 				cout << "___|" ;
@@ -47,19 +47,19 @@ void NqueensBoard:: printBoard(){
 };
 
 bool NqueensBoard:: isSafe(int i,int j){
-	/* this -> printBoard(); */
+	/*  printBoard(); */
 	/* cout << "cecking for i&j " <<i << " " << j << endl; */
 
 	//row checks
 	for(int li=0;li < i; li++){
-		if(this->board[li] == j)
+		if(board[li] == j)
 			return false;
 	}
 
 	//diagonal check
 	for(int li=0;li < i; li++){
 		short int columnDiff = abs(i-li);
-		short int rowDiff = abs(j-this->board[li]);
+		short int rowDiff = abs(j-board[li]);
 
 		if(columnDiff == rowDiff) return false;
 	}
@@ -70,10 +70,10 @@ bool NqueensBoard:: isSafe(int i,int j){
 
 //make it non -recursive
 bool NqueensBoard:: solveQueens(int i,int j){
-	for(; j < this -> siNSize; j++){
+	for(; j < siNSize; j++){
 		if(isSafe(i,j)){
-			this -> board[i] = j;
-			if(i == this -> siNSize -1 )
+			 board[i] = j;
+			if(i ==  siNSize -1 )
 				return true;
 			if(solveQueens(i+1,0)) {
 				printBoard();

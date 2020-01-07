@@ -18,3 +18,7 @@ technique | traditional | dped | note
 ---	| --- | --- | --
 Memoization | 5383971 ticks | 105 ticks | eg: on fibonacci number generation 43
 
+## Misc Algorithms
+
+## nQueens
+Keep those queens apart
