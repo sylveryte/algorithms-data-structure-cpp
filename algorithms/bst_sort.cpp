@@ -1,23 +1,26 @@
 #include<iostream>
 #include "../sylvtools.cpp"
 
-typedef struct node{
-	//int subtree_count;//augmenting bst can add additional feature
-	int value;
-	struct node* leftchild=nullptr;
-	struct node* rightchild=nullptr;
-	struct node* parent=nullptr;
-	node(int value){this->value = value;}
-	node(){this->value = -9999;}
-}node;
 
-typedef struct bst{
+typedef struct binary_search_tree{
+
+	typedef struct node{
+		/* node of a tree */
+		/* int subtree_count;//augmenting binary_search_tree can add additional feature */
+		int value;
+		struct node* leftchild=nullptr;
+		struct node* rightchild=nullptr;
+		struct node* parent=nullptr;
+		node(int value){this->value = value;}
+		node(){this->value = -9999;}
+	}node;
+
 	node* head;
 	int size;
 	int inorder_index;
 
-	
-	bst(int value){
+
+	binary_search_tree(int value){
 		this -> head = new node(value);
 		this -> size = 1;
 	}
@@ -50,6 +53,9 @@ typedef struct bst{
 			}
 	}
 	void inorder_traverse(int* a, node* n){
+		/* takes an empty array a and node from where sorted array needed.
+		 * fills array with ascending order node vallues (sorted array) using inorder_traverssal
+		 * */
 		if(n-> leftchild != nullptr)inorder_traverse(a,n->leftchild);
 		a[this -> inorder_index++]=n->value;
 		if(n-> rightchild != nullptr)inorder_traverse(a,n->rightchild);
@@ -58,11 +64,13 @@ typedef struct bst{
 		this -> inorder_index = 0;
 		inorder_traverse(a,this->head);
 	}
+
+	/* printing purpose */
 	void print_node(node* ptr){
 		if(ptr -> leftchild == nullptr &&
 				ptr -> rightchild == nullptr)return;
 		cout << "|| " << ptr -> value << " : ";
-		if(ptr->leftchild != nullptr){ 
+		if(ptr->leftchild != nullptr){
 			cout << ptr-> leftchild-> value ;
 		}
 		cout<< " _ ";
@@ -78,11 +86,11 @@ typedef struct bst{
 		print_node(this->head);
 		cout <<endl;
 	}
-}bst;
+}binary_search_tree;
 
 int main(){
 
-	bst b(21);
+	binary_search_tree b(21);
 	b.insert(21);
 	b.insert(1);
 	b.insert(23);
@@ -94,7 +102,7 @@ int main(){
 	//fuck!! i'm amazing
 	int a[13]={12,24,54,2,452,36,23,6,325732,45,2346234,23,1};
 	printa("before",a,13);
-	bst sor(12);
+	binary_search_tree sor(12);
 	for(int i=1;i<13;i++)sor.insert(a[i]);
 	sor.print_tree();
 	sor.get_sorted_array(a);

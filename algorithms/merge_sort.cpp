@@ -1,29 +1,35 @@
 #include <iostream>
 #include "../sylvtools.cpp"
 
-void merge(int* a,int s, int e){
-	//cout << " -----> " << s << " : " << e << endl;
+void merge(int* a,int start, int end){
+
+	/* DIVIDE */
+
+	//cout << " -----> " << start << " : " << end << endl;
 	//printa("whola",a,10);
-	if(s==e){
+	if(start==end){
 		return;
 	}
-	int m = (s+e)/2;
-	merge(a,s,m);
-	merge(a,m+1,e);
+	int middle = (start+end)/2;
+	merge(a,start,middle);
+	merge(a,middle+1,end);
 
-	//cout << m << " <- " << s << " : " << e << endl;
+	//cout << middle << " <- " << start << " : " << end << endl;
 	//printl("2 splits >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ");
 
-	int lc=m-s+1, rc=e-m, fk;
+
+	/* CONQUER/MERGE */
+
+	int lc=middle-start+1, rc=end-middle, fk;
 	int la[lc],ra[rc];
-	for(int i=0,fk=s;i<lc;i++)la[i]=a[fk++];
-	for(int i=0,fk=m+1;i<rc;i++)ra[i]=a[fk++];
+	for(int i=0,fk=start;i<lc;i++)la[i]=a[fk++];
+	for(int i=0,fk=middle+1;i<rc;i++)ra[i]=a[fk++];
 	//printa("first",la,lc);
 	//printa("sicnd",ra,rc);
 
-	int rsk=s;
+	int rsk=start;
 	int lk=0,rk=0;
-	//for(int qi=s,qe=e;qi<=qe;qi++)a[qi]=0;
+	//for(int qi=s,qe=end;qi<=qe;qi++)a[qi]=0;
 	//printa("before merge",a,10);
 	while(1){
 		if(lk==lc || rk == rc)break;
@@ -39,6 +45,9 @@ void merge(int* a,int s, int e){
 }
 
 void merge_sort(int* a, int n){
+	/* sorts array a of size n, 
+	 * using divide & conquer technique merge_sort
+	 * */
 	merge(a,0,n-1);
 }
 

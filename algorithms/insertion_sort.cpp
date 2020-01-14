@@ -2,6 +2,10 @@
 #include "../sylvtools.cpp"
 
 void insertion_sort(int *a, int n){
+	/* interts element in sorted array and keeping 
+	 * sorted property of the array
+	 * better use binary_insertion_sort
+	 * */
 	int t=0;
 	for(int i=1,j=0; i<n; i++){
 		j=i;
