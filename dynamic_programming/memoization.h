@@ -11,5 +11,8 @@
 #include <map>
 #include<iostream>
 
+int fibm(int);
+int fib(int);
+
 
 #endif /* !MEMOIZATION_H */
